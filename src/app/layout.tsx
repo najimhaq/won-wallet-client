@@ -7,6 +7,7 @@ import { BackToTop } from '@/components/lenis/back-to-top';
 import { ScrollProgress } from '@/components/lenis/scroll-progress';
 import { ScrollReset } from '@/components/lenis/scroll-reset';
 import { SmoothScrollProvider } from '@/components/lenis/smooth-scroll-provider';
+import { AuthProvider } from '@/hooks/use-auth';
 
 const ubuntu = Ubuntu_Sans({
   variable: '--font-ubuntu-sans',
@@ -52,7 +53,9 @@ export default function RootLayout({
           <ScrollReset />
           <ScrollProgress />
 
-          <main>{children}</main>
+          <main>
+            <AuthProvider>{children}</AuthProvider>
+          </main>
 
           <BackToTop />
         </SmoothScrollProvider>
