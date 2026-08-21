@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 WonWallet
 
-## Getting Started
+**WonWallet** is a modern, intuitive expense tracker designed to help you take control of your finances. Track your spending, manage budgets, and grow your savings — all in one sleek application.
 
-First, run the development server:
+---
+
+[![Next.js](https://img.shields.io/badge/Next.js-App_Router-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strictly_Typed-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
+[![License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
+
+
+## Technology stack
+
+### Frontend
+
+| Technology | Purpose |
+| --- | --- |
+| [Next.js](https://nextjs.org/) | App Router, routing, rendering, and frontend framework |
+| [React](https://react.dev/) | Component-based user interface |
+| [TypeScript](https://www.typescriptlang.org/) | Static typing and safer application code |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling system |
+| [daisyUI](https://daisyui.com/) | Tailwind component utilities |
+| [Framer Motion](https://motion.dev/) | UI animation and motion |
+| [React Icons](https://react-icons.github.io/react-icons/) | Icon library |
+| [Lucide](https://lucide.dev/) | Interface icons |
+
+### Backend
+
+| Technology | Purpose |
+| --- | --- |
+| [Node.js](https://nodejs.org/) | JavaScript runtime |
+| [Express.js](https://expressjs.com/) | REST API framework |
+| [TypeScript](https://www.typescriptlang.org/) | Typed backend development |
+| [MongoDB Atlas](https://www.mongodb.com/atlas) | Cloud document database |
+| [Mongoose](https://mongoosejs.com/) | MongoDB object modeling and validation |
+| [Better Auth](https://www.better-auth.com/) | Authentication and session management |
+| [Multer](https://github.com/expressjs/multer) | Multipart form-data and image handling |
+| [ImgBB](https://imgbb.com/) | Hosted profile-image storage |
+
+### Quality and product tooling
+
+| Technology | Purpose |
+| --- | --- |
+| [Zod](https://zod.dev/) | Schema validation where applicable |
+| [React Hook Form](https://react-hook-form.com/) | Form state management where applicable |
+| [TanStack Query](https://tanstack.com/query/latest) | Server-state management where applicable |
+| [Render](https://render.com/) | Backend deployment |
+| [Vercel](https://vercel.com/) | Frontend deployment option |
+
+---
+
+## ✨ Features
+
+- 📊 **Expense Tracking**
+  Add, edit, and categorize your daily expenses with ease.
+
+- 🗂️ **Smart Categories**
+  Organize spending into categories like Food, Travel, Bills, and more.
+
+- 📅 **Monthly Reports**
+  Get detailed insights into your spending habits with charts and summaries.
+
+- 🔔 **Budget Alerts**
+  Stay on track with notifications when you approach your budget limits.
+
+- ☁️ **Cloud Sync**
+  Access your data securely across devices.
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: Next.js + TypeScript
+- **Backend**: Node.js + Express.js + Zod validation
+- **Database**: PostgreSQL + Prisma
+- **Authentication**: Better Auth
+- **Deployment**: Vercel
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
+# Clone the repository
+git clone git@github.com:najimhaq/won-wallet-tracker.git
+
+# Navigate into the project
+cd wonwallet
+
+# Install dependencies
+yarn install
+
+# Run development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Built by **Najim Haq**.
 
-## Learn More
+- Portfolio: [najimul.com](https://najimul.com)
+- GitHub: [@najimhaq](https://github.com/najimhaq)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
