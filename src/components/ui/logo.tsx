@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { WalletCards } from 'lucide-react';
+import { SiWalletconnect } from 'react-icons/si';
+
 
 type LogoProps = {
   href?: string;
@@ -14,7 +16,8 @@ export function Logo({ href = '/', compact = false }: LogoProps) {
       aria-label='WonWallet home'
     >
       <span className='grid size-9 place-items-center rounded-xl bg-primary text-text-inverse shadow-sm'>
-        <WalletCards className='size-5' />
+
+        <SiWalletconnect className='size-5 animate-pulse' />
       </span>
 
       {!compact && (

@@ -41,6 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
+      data-scroll-behavior='smooth'
       suppressHydrationWarning
       className={`${ubuntu.variable} ${josefin.variable} h-full antialiased`}
     >

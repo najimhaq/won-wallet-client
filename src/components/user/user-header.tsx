@@ -7,20 +7,16 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 import { signOut, useSession } from '@/lib/auth-client';
-import { is } from 'zod/v4/locales';
 
-function capitalizeName(name?: string | null) {
+function formatName(name?: string | null) {
   if (!name) return 'User';
 
   return name
     .trim()
     .split(/\s+/)
-    .map((part) => {
-      const firstLetter = part.charAt(0).toUpperCase();
-      const remainingLetters = part.slice(1).toLowerCase();
-
-      return `${firstLetter}${remainingLetters}`;
-    })
+    .map(
+      (part) => `${part.charAt(0).toUpperCase()}${part.slice(1).toLowerCase()}`
+    )
     .join(' ');
 }
 
@@ -36,7 +32,7 @@ function getInitials(name?: string | null) {
     .join('');
 }
 
-export function DashboardHeader() {
+export function UserHeader() {
   const router = useRouter();
   const { data: session, isPending } = useSession();
 
@@ -46,9 +42,7 @@ export function DashboardHeader() {
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   const user = session?.user;
-  const isRole = user?.role;
-  const role = isRole === 'ADMIN' ? 'admin' : 'user';
-  const displayName = capitalizeName(user?.name);
+  const displayName = formatName(user?.name);
   const firstName = displayName.split(' ')[0];
   const initials = getInitials(user?.name);
 
@@ -56,9 +50,10 @@ export function DashboardHeader() {
     if (!isMenuOpen) return;
 
     function handlePointerDown(event: PointerEvent) {
-      const target = event.target as Node;
-
-      if (userMenuRef.current && !userMenuRef.current.contains(target)) {
+      if (
+        userMenuRef.current &&
+        !userMenuRef.current.contains(event.target as Node)
+      ) {
         setIsMenuOpen(false);
       }
     }
@@ -111,15 +106,10 @@ export function DashboardHeader() {
           <p className='text-sm font-semibold text-text-primary'>
             {isPending ? 'Loading...' : `Good afternoon, ${firstName}`}
           </p>
-          {user?.role === 'ADMIN' ? (
-            <p className='mt-1 text-xs leading-5 text-text-secondary'>
-              Manage your transactions, operations and user management.
-            </p>
-          ) : (
-            <p className='hidden text-xs text-text-muted sm:block'>
-              Here&apos;s your financial overview.
-            </p>
-          )}
+
+          <p className='hidden text-xs text-text-muted sm:block'>
+            Here&apos;s your financial overview.
+          </p>
         </div>
       </div>
 
@@ -170,7 +160,7 @@ export function DashboardHeader() {
                 type='button'
                 onClick={() => {
                   setIsMenuOpen(false);
-                  router.push(`/dashboard/${role}/settings`);
+                  router.push('/dashboard/user/settings');
                 }}
                 className='flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-text-secondary hover:bg-surface-hover hover:text-text-primary'
                 role='menuitem'
