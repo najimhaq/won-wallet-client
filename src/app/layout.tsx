@@ -3,10 +3,6 @@ import { Josefin_Sans, Ubuntu_Sans } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
 import './globals.css';
-import { BackToTop } from '@/components/lenis/back-to-top';
-import { ScrollProgress } from '@/components/lenis/scroll-progress';
-import { ScrollReset } from '@/components/lenis/scroll-reset';
-import { SmoothScrollProvider } from '@/components/lenis/smooth-scroll-provider';
 import { AuthProvider } from '@/hooks/use-auth';
 
 const ubuntu = Ubuntu_Sans({
@@ -25,14 +21,15 @@ export const metadata: Metadata = {
     template: '%s | WonWallet',
   },
   description:
-    'WonWallet helps you organize books, track reading progress, and build your personal library.',
+    'Track income, expenses, budgets, and financial activity in one simple personal finance dashboard.',
   keywords: [
     'WonWallet',
-    'personal tracker',
-    'expense manager',
     'expense tracker',
-    'income expense',
-    'expense management',
+    'personal finance',
+    'budget tracker',
+    'income tracker',
+    'expense manager',
+    'money management',
   ],
 };
 
@@ -44,30 +41,34 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      data-scroll-behavior='smooth'
       suppressHydrationWarning
       className={`${ubuntu.variable} ${josefin.variable} h-full antialiased`}
     >
       <body className='min-h-full bg-canvas font-sans text-text-primary'>
-        <SmoothScrollProvider>
-          <ScrollReset />
-          <ScrollProgress />
-
-          <main>
-            <AuthProvider>{children}</AuthProvider>
-          </main>
-
-          <BackToTop />
-        </SmoothScrollProvider>
+        <AuthProvider>{children}</AuthProvider>
 
         <Toaster
           position='top-right'
           toastOptions={{
+            duration: 3500,
             style: {
-              background: '#fffcf5',
-              color: '#1d2721',
-              border: '1px solid #ded3c1',
-              boxShadow: '0 12px 30px rgba(29, 39, 33, 0.12)',
+              background: '#ffffff',
+              color: '#0f172a',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              boxShadow: '0 12px 30px rgba(15, 23, 42, 0.12)',
+            },
+            success: {
+              iconTheme: {
+                primary: '#0f766e',
+                secondary: '#ffffff',
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: '#e11d48',
+                secondary: '#ffffff',
+              },
             },
           }}
         />
