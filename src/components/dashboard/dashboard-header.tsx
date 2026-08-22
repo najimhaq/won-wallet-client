@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 import { signOut, useSession } from '@/lib/auth-client';
-import { is } from 'zod/v4/locales';
+
 
 function capitalizeName(name?: string | null) {
   if (!name) return 'User';
@@ -35,6 +35,20 @@ function getInitials(name?: string | null) {
     .map((part) => part.charAt(0).toUpperCase())
     .join('');
 }
+const getGreeting = () => {
+  const hour = new Date().getHours();
+
+  if (hour >= 5 && hour < 12) {
+    return '🌅 Good Morning';
+  } else if (hour >= 12 && hour < 17) {
+    return '☀️ Good Afternoon';
+  } else if (hour >= 17 && hour < 21) {
+    return '🌇 Good Evening';
+  } else {
+    return '🌙 Good Night';
+  }
+};
+
 
 export function DashboardHeader() {
   const router = useRouter();
@@ -109,7 +123,7 @@ export function DashboardHeader() {
 
         <div>
           <p className='text-sm font-semibold text-text-primary'>
-            {isPending ? 'Loading...' : `Good afternoon, ${firstName}`}
+            {isPending ? 'Loading...' : `${getGreeting()}, ${firstName}`}
           </p>
           {user?.role === 'ADMIN' ? (
             <p className='mt-1 text-xs leading-5 text-text-secondary'>
