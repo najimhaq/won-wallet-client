@@ -25,7 +25,7 @@ export function useData<T = unknown>(
     error,
     isLoading,
     isError: !!error,
-    mutate, 
+    mutate,
   };
 }
 
@@ -37,6 +37,7 @@ export function useMutation() {
     const response = await axiosClient.post<T>(url, body);
     return response.data;
   };
+
 
   const put = async <T = unknown>(url: string, body?: unknown): Promise<T> => {
     const response = await axiosClient.put<T>(url, body);

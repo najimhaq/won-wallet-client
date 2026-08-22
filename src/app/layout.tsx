@@ -3,7 +3,7 @@ import { Josefin_Sans, Ubuntu_Sans } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
 import './globals.css';
-import { AuthProvider } from '@/hooks/use-auth';
+
 
 const ubuntu = Ubuntu_Sans({
   variable: '--font-ubuntu-sans',
@@ -46,7 +46,7 @@ export default function RootLayout({
       className={`${ubuntu.variable} ${josefin.variable} h-full antialiased`}
     >
       <body className='min-h-full bg-canvas font-sans text-text-primary'>
-        <AuthProvider>{children}</AuthProvider>
+        {children}
 
         <Toaster
           position='top-right'
